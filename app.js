@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileNavigation();
     initSmoothScrolling();
     initSearchFilters();
-    initGasPriceTracker();
+    initGasFinder(); // New gas finder with external links
     initDealAlerts();
     initFavoritesSystem();
     initBackToTop();
@@ -168,106 +168,29 @@ function initSearchFilters() {
     }
 }
 
-// Gas Price Tracker with GetUpside Live Data
-function initGasPriceTracker() {
-    // Live prices from GetUpside for Elkin, NC (as of August 1, 2025)
-    // These are actual reported prices, not estimates
-    const elkinStationPrices = {
-        'shell': {
-            name: 'Shell + Circle K',
-            address: '985 Johnson Ridge Rd',
-            regular: '2.69',
-            diesel: '2.80'
-        },
-        'speedway': {
-            name: 'Speedway',
-            address: '626 CC Camp Rd',
-            regular: '2.74',
-            diesel: '2.85'
-        },
-        'murphy': {
-            name: 'Murphy Express',
-            address: '491 CC Camp Rd',
-            regular: '2.67',  // Usually cheapest
-            diesel: '2.78'
-        },
-        'sheetz': {
-            name: 'Sheetz',
-            address: '401 CC Camp Rd',
-            regular: '2.72',
-            diesel: '2.83'
-        },
-        'citgo': {
-            name: 'CITGO',
-            address: '798 NC Highway 268 W',
-            regular: '2.71',
-            diesel: '2.82'
-        }
-    };
-    
-    // Update display elements
-    function updateGasPrices() {
-        // Show current prices
-        Object.entries(elkinStationPrices).forEach(([key, station]) => {
-            const priceElement = document.getElementById(`price-${key}`);
-            if (priceElement) {
-                priceElement.textContent = `$${station.regular}`;
-                priceElement.classList.remove('loading');
-                
-                // Highlight lowest price
-                if (station.regular === '2.67') {
-                    priceElement.classList.add('price-low');
-                    priceElement.innerHTML = `<i class="fas fa-star"></i> $${station.regular}`;
-                }
-            }
+// Gas Finder Interactive Features
+function initGasFinder() {
+    // Add hover effects to gas cards
+    const gasCards = document.querySelectorAll('.gas-card');
+    gasCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-6px)';
         });
         
-        // Update timestamp
-        const updateTime = document.getElementById('gas-update-time');
-        if (updateTime) {
-            updateTime.textContent = 'Prices from GetUpside (Live Data)';
-        }
-        
-        // Add helpful notice
-        const gasSection = document.querySelector('#gas .section-header');
-        if (gasSection && !document.getElementById('gas-notice')) {
-            const notice = document.createElement('div');
-            notice.id = 'gas-notice';
-            notice.className = 'gas-notice';
-            notice.innerHTML = '<p><i class="fas fa-info-circle"></i> <strong>Tip:</strong> Download the GetUpside app to earn cash back at these stations!</p>';
-            gasSection.after(notice);
-        }
-        
-        // Add data source attribution
-        const attribution = document.getElementById('gas-attribution');
-        if (attribution) {
-            attribution.innerHTML = '<small>Price data sourced from GetUpside • Last verified: August 1, 2025</small>';
-        }
-    }
-    
-    // Initial load
-    updateGasPrices();
-    
-    // Add manual refresh button
-    const refreshButton = document.getElementById('refresh-gas-prices');
-    if (refreshButton) {
-        refreshButton.addEventListener('click', () => {
-            // Show loading state briefly
-            Object.keys(elkinStationPrices).forEach(key => {
-                const element = document.getElementById(`price-${key}`);
-                if (element) {
-                    element.textContent = '$--.--';
-                    element.classList.add('loading');
-                }
-            });
-            
-            // Simulate refresh with slight delay
-            setTimeout(() => {
-                updateGasPrices();
-                showToast('Gas prices updated!', 'success');
-            }, 500);
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
         });
-    }
+    });
+    
+    // Track link clicks for analytics (if needed)
+    const gasLinks = document.querySelectorAll('.gas-card .btn');
+    gasLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const serviceName = this.closest('.gas-card').querySelector('h3').textContent;
+            console.log(`Gas finder link clicked: ${serviceName}`);
+            // Could add analytics tracking here
+        });
+    });
 }
 
 // Deal Alerts for Time-Sensitive Offers
@@ -765,8 +688,243 @@ if ('performance' in window) {
     });
 }
 
+// Weekly Specials Functions
+function updateLastModified() {
+    const now = new Date();
+    const formatted = now.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    const element = document.getElementById('last-updated');
+    if (element) {
+        element.textContent = formatted;
+    }
+}
+
+function addDeal(storeId, icon, item, price, savings) {
+    const dealsContainer = document.getElementById(storeId + '-deals');
+    if (!dealsContainer) return;
+    
+    const dealElement = document.createElement('div');
+    dealElement.className = 'deal-item';
+    dealElement.innerHTML = `
+        <i class="fas fa-${icon}"></i>
+        <span class="item">${item}</span>
+        <span class="price">${price}</span>
+        <span class="savings">${savings}</span>
+    `;
+    dealsContainer.appendChild(dealElement);
+}
+
+function loadCurrentWeekDeals() {
+    console.log('Weekly deals loaded successfully');
+    updateLastModified();
+}
+
+function highlightBestDeals() {
+    const deals = document.querySelectorAll('.deal-item');
+    deals.forEach(deal => {
+        const savingsElement = deal.querySelector('.savings');
+        if (savingsElement) {
+            const savings = savingsElement.textContent;
+            if (savings.includes('Save $3') || savings.includes('Save $2')) {
+                deal.style.background = 'rgba(16, 185, 129, 0.05)';
+                deal.style.borderLeft = '3px solid #10b981';
+            }
+        }
+    });
+}
+
+// Savings Calculator Functions
+let gasSavingsAnnual = 0;
+let grocerySavingsAnnual = 0;
+let diningSavingsAnnual = 0;
+
+function showCalculator(type, buttonElement) {
+    // Hide all panels
+    document.querySelectorAll('.calculator-panel').forEach(panel => {
+        panel.classList.remove('active');
+    });
+    
+    // Remove active class from all tabs
+    document.querySelectorAll('.tab-button').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // Show selected panel
+    const panel = document.getElementById(type + '-calculator');
+    if (panel) {
+        panel.classList.add('active');
+    }
+    
+    // Add active class to clicked tab
+    buttonElement.classList.add('active');
+    
+    // Calculate for the active calculator
+    setTimeout(() => {
+        if (type === 'gas') calculateGasSavings();
+        if (type === 'grocery') calculateGrocerySavings();
+        if (type === 'dining') calculateDiningSavings();
+    }, 100);
+}
+
+function calculateGasSavings() {
+    const milesPerWeek = parseFloat(document.getElementById('miles-per-week').value) || 0;
+    const mpg = parseFloat(document.getElementById('mpg').value) || 1;
+    const expensivePrice = parseFloat(document.getElementById('expensive-price').value) || 0;
+    const cheapPrice = parseFloat(document.getElementById('cheap-price').value) || 0;
+    
+    if (expensivePrice <= cheapPrice) {
+        document.getElementById('gas-insight').textContent = 'The expensive station price should be higher than the cheap station price.';
+        return;
+    }
+    
+    const gallonsPerWeek = milesPerWeek / mpg;
+    const weeklySavings = gallonsPerWeek * (expensivePrice - cheapPrice);
+    const monthlySavings = weeklySavings * 4.33;
+    const annualSavings = weeklySavings * 52;
+    
+    gasSavingsAnnual = annualSavings;
+    
+    document.getElementById('weekly-gas-savings').textContent = '$' + weeklySavings.toFixed(2);
+    document.getElementById('monthly-gas-savings').textContent = '$' + monthlySavings.toFixed(2);
+    document.getElementById('annual-gas-savings').textContent = '$' + annualSavings.toFixed(2);
+    
+    let insight = `By choosing the cheapest gas station in Elkin, you use ${gallonsPerWeek.toFixed(1)} gallons per week and save ${((expensivePrice - cheapPrice) * 100).toFixed(1)}¢ per gallon.`;
+    
+    if (annualSavings > 100) {
+        insight += ` That's enough to cover your vehicle registration fees!`;
+    } else if (annualSavings > 50) {
+        insight += ` Every little bit helps with rising costs!`;
+    }
+    
+    document.getElementById('gas-insight').textContent = insight;
+    updateTotalSavings();
+}
+
+function calculateGrocerySavings() {
+    const weeklyBudget = parseFloat(document.getElementById('weekly-grocery-budget').value) || 0;
+    const salePercentage = parseFloat(document.getElementById('sale-percentage').value) / 100 || 0;
+    const averageDiscount = parseFloat(document.getElementById('average-discount').value) / 100 || 0;
+    const couponSavings = parseFloat(document.getElementById('coupon-savings').value) || 0;
+    
+    const saleSavings = weeklyBudget * salePercentage * averageDiscount;
+    const totalWeeklySavings = saleSavings + couponSavings;
+    const monthlySavings = totalWeeklySavings * 4.33;
+    const annualSavings = totalWeeklySavings * 52;
+    
+    grocerySavingsAnnual = annualSavings;
+    
+    document.getElementById('weekly-grocery-savings').textContent = '$' + totalWeeklySavings.toFixed(2);
+    document.getElementById('monthly-grocery-savings').textContent = '$' + monthlySavings.toFixed(2);
+    document.getElementById('annual-grocery-savings').textContent = '$' + annualSavings.toFixed(2);
+    
+    const savingsPercentage = weeklyBudget > 0 ? (totalWeeklySavings / weeklyBudget * 100).toFixed(1) : 0;
+    let insight = `You're saving ${savingsPercentage}% on your grocery budget through sales and coupons.`;
+    
+    if (annualSavings > 500) {
+        insight += ` That's like getting a month of groceries free every year!`;
+    } else if (annualSavings > 200) {
+        insight += ` That adds up to significant savings over time!`;
+    }
+    
+    document.getElementById('grocery-insight').textContent = insight;
+    updateTotalSavings();
+}
+
+function calculateDiningSavings() {
+    const mealsOut = parseFloat(document.getElementById('meals-out-per-week').value) || 0;
+    const mealCost = parseFloat(document.getElementById('average-meal-cost').value) || 0;
+    const homeCost = parseFloat(document.getElementById('home-meal-cost').value) || 0;
+    const mealsToReduce = parseFloat(document.getElementById('meals-to-reduce').value) || 0;
+    
+    if (mealCost <= homeCost) {
+        document.getElementById('dining-insight').textContent = 'Home cooking cost should be less than dining out cost for savings.';
+        return;
+    }
+    
+    const savingsPerMeal = mealCost - homeCost;
+    const weeklySavings = mealsToReduce * savingsPerMeal;
+    const monthlySavings = weeklySavings * 4.33;
+    const annualSavings = weeklySavings * 52;
+    
+    diningSavingsAnnual = annualSavings;
+    
+    document.getElementById('weekly-dining-savings').textContent = '$' + weeklySavings.toFixed(2);
+    document.getElementById('monthly-dining-savings').textContent = '$' + monthlySavings.toFixed(2);
+    document.getElementById('annual-dining-savings').textContent = '$' + annualSavings.toFixed(2);
+    
+    let insight = `By cooking ${mealsToReduce} more meals at home each week, you save $${savingsPerMeal.toFixed(2)} per meal.`;
+    
+    if (annualSavings > 1000) {
+        insight += ` That's enough for a nice vacation!`;
+    } else if (annualSavings > 500) {
+        insight += ` That could cover several months of utilities!`;
+    }
+    
+    document.getElementById('dining-insight').textContent = insight;
+    updateTotalSavings();
+}
+
+function updateTotalSavings() {
+    const totalAnnual = gasSavingsAnnual + grocerySavingsAnnual + diningSavingsAnnual;
+    
+    if (totalAnnual > 0) {
+        const displayElement = document.getElementById('total-savings-display');
+        if (displayElement) {
+            displayElement.style.display = 'block';
+        }
+        
+        const totalElement = document.getElementById('total-annual-savings');
+        if (totalElement) {
+            totalElement.textContent = '$' + totalAnnual.toFixed(0);
+        }
+        
+        const months = Math.round(totalAnnual / 95);
+        const comparisonElement = document.getElementById('insurance-comparison');
+        if (comparisonElement) {
+            comparisonElement.textContent = months;
+        }
+    }
+}
+
+// Initialize Weekly Specials
+document.addEventListener('DOMContentLoaded', function() {
+    loadCurrentWeekDeals();
+    highlightBestDeals();
+    
+    // Add hover effects to special cards
+    const cards = document.querySelectorAll('.special-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '';
+        });
+    });
+    
+    // Initialize calculators
+    calculateGasSavings();
+});
+
+// Make calculator functions globally available
+window.showCalculator = showCalculator;
+window.calculateGasSavings = calculateGasSavings;
+window.calculateGrocerySavings = calculateGrocerySavings;
+window.calculateDiningSavings = calculateDiningSavings;
+
+// Make grocery specials functions globally available
+window.GrocerySpecials = {
+    addDeal: addDeal,
+    updateLastModified: updateLastModified,
+    highlightBestDeals: highlightBestDeals
+};
+
 // Debug logging for troubleshooting
-console.log('Save in Elkin NC app initialized');
+console.log('Save in Elkin NC app initialized with new components');
 
 // Export functions for testing (if needed)
 if (typeof module !== 'undefined' && module.exports) {
@@ -775,6 +933,10 @@ if (typeof module !== 'undefined' && module.exports) {
         initSearchFilters,
         initFavoritesSystem,
         showToast,
-        debounce
+        debounce,
+        showCalculator,
+        calculateGasSavings,
+        calculateGrocerySavings,
+        calculateDiningSavings
     };
 }

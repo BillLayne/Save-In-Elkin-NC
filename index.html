@@ -66,7 +66,9 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <h1><i class="fas fa-piggy-bank"></i> Save in Elkin NC</h1>
+                    <a href="https://www.billlayneinsurance.com" target="_blank" style="text-decoration: none; color: inherit;">
+                        <h1><i class="fas fa-shield-alt"></i> Bill Layne Insurance</h1>
+                    </a>
                 </div>
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
                     <span></span>
@@ -75,8 +77,9 @@
                 </button>
                 <nav class="nav" id="nav">
                     <ul class="nav-list">
-                        <li><a href="#grocery">Grocery</a></li>
+                        <li><a href="#grocery">Grocery & Deals</a></li>
                         <li><a href="#gas">Gas Prices</a></li>
+                        <li><a href="#savings-calculator">Calculator</a></li>
                         <li><a href="#yard-sales">Yard Sales</a></li>
                         <li><a href="#business-discounts">Discounts</a></li>
                         <li><a href="#community">Community</a></li>
@@ -92,8 +95,8 @@
         <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h2 class="hero-title">Save Big in Elkin, NC</h2>
-                    <p class="hero-subtitle">Your complete guide to local discounts, deals, and money-saving resources</p>
+                    <h2 class="hero-title">Save in Elkin NC</h2>
+                    <p class="hero-subtitle">Your complete guide to local discounts, weekly grocery deals, and money-saving calculators in the heart of North Carolina</p>
                     <div class="weather-widget" id="weather-widget">
                         <i class="fas fa-sun"></i>
                         <span id="weather-temp">72°F</span>
@@ -109,11 +112,15 @@
                 <div class="quick-links-grid">
                     <a href="#grocery" class="quick-link-card">
                         <i class="fas fa-shopping-cart"></i>
-                        <span>Grocery Deals</span>
+                        <span>Grocery & Deals</span>
                     </a>
                     <a href="#gas" class="quick-link-card">
                         <i class="fas fa-gas-pump"></i>
                         <span>Gas Prices</span>
+                    </a>
+                    <a href="#savings-calculator" class="quick-link-card">
+                        <i class="fas fa-calculator"></i>
+                        <span>Savings Calc</span>
                     </a>
                     <a href="#yard-sales" class="quick-link-card">
                         <i class="fas fa-tags"></i>
@@ -239,88 +246,258 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Weekly Specials Section -->
+                <div class="weekly-specials-section">
+                    <h3><i class="fas fa-star"></i> This Week's Best Deals</h3>
+                    <p class="section-subtitle">Updated every Sunday with fresh weekly specials from local stores</p>
+                    
+                    <div class="specials-grid">
+                        <!-- Food Lion Card -->
+                        <div class="special-card food-lion">
+                            <div class="store-header">
+                                <h3>Food Lion</h3>
+                                <span class="valid-dates">Valid Aug 1-7</span>
+                            </div>
+                            <div class="deals" id="food-lion-deals">
+                                <div class="deal-item">
+                                    <i class="fas fa-apple-alt"></i>
+                                    <span class="item">Gala Apples</span>
+                                    <span class="price">$0.99/lb</span>
+                                    <span class="savings">Save $1.00</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-drumstick-bite"></i>
+                                    <span class="item">Chicken Breast</span>
+                                    <span class="price">$1.99/lb</span>
+                                    <span class="savings">Save $2.00</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-bread-slice"></i>
+                                    <span class="item">Nature's Own Bread</span>
+                                    <span class="price">2 for $4</span>
+                                    <span class="savings">Save $1.98</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-cheese"></i>
+                                    <span class="item">Kraft Singles</span>
+                                    <span class="price">$3.99</span>
+                                    <span class="savings">Save $1.50</span>
+                                </div>
+                            </div>
+                            <a href="https://www.foodlion.com/weekly-ad" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Full Ad
+                            </a>
+                        </div>
+
+                        <!-- Ingles Markets Card -->
+                        <div class="special-card ingles">
+                            <div class="store-header">
+                                <h3>Ingles Markets</h3>
+                                <span class="valid-dates">Valid Aug 1-7</span>
+                            </div>
+                            <div class="deals" id="ingles-deals">
+                                <div class="deal-item">
+                                    <i class="fas fa-fish"></i>
+                                    <span class="item">Atlantic Salmon</span>
+                                    <span class="price">$6.99/lb</span>
+                                    <span class="savings">Save $3.00</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-ice-cream"></i>
+                                    <span class="item">Blue Bell Ice Cream</span>
+                                    <span class="price">$3.99</span>
+                                    <span class="savings">Save $1.50</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-soap"></i>
+                                    <span class="item">Tide Detergent</span>
+                                    <span class="price">$8.99</span>
+                                    <span class="savings">Save $3.00</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-cookie-bite"></i>
+                                    <span class="item">Oreo Cookies</span>
+                                    <span class="price">2 for $5</span>
+                                    <span class="savings">Save $2.00</span>
+                                </div>
+                            </div>
+                            <a href="https://www.ingles-markets.com/weekly-ad" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Full Ad
+                            </a>
+                        </div>
+
+                        <!-- Walmart Card -->
+                        <div class="special-card walmart">
+                            <div class="store-header">
+                                <h3>Walmart</h3>
+                                <span class="valid-dates">Rollback Prices</span>
+                            </div>
+                            <div class="deals" id="walmart-deals">
+                                <div class="deal-item">
+                                    <i class="fas fa-hamburger"></i>
+                                    <span class="item">Ground Beef 80/20</span>
+                                    <span class="price">$3.98/lb</span>
+                                    <span class="savings">Rollback</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-carrot"></i>
+                                    <span class="item">Baby Carrots 2lb</span>
+                                    <span class="price">$1.98</span>
+                                    <span class="savings">Everyday Low</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-prescription-bottle"></i>
+                                    <span class="item">$4 Prescriptions</span>
+                                    <span class="price">$4.00</span>
+                                    <span class="savings">90+ medications</span>
+                                </div>
+                                <div class="deal-item">
+                                    <i class="fas fa-pizza-slice"></i>
+                                    <span class="item">Great Value Pizza</span>
+                                    <span class="price">$1.48</span>
+                                    <span class="savings">Rollback</span>
+                                </div>
+                            </div>
+                            <a href="https://www.walmart.com/store/1337/elkin-nc" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fas fa-store"></i>
+                                Visit Store
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Shopping Tips Section -->
+                    <div class="shopping-tips">
+                        <h3><i class="fas fa-lightbulb"></i> Smart Shopping Tips</h3>
+                        <div class="tips-row">
+                            <div class="tip">
+                                <i class="fas fa-list"></i>
+                                <div>
+                                    <strong>Make a List:</strong> Plan meals around sale items to maximize savings
+                                </div>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Shop Early:</strong> Best selection on sale items is Sunday-Tuesday
+                                </div>
+                            </div>
+                            <div class="tip">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <strong>Use Apps:</strong> Download store apps for digital coupons and exclusive deals
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="gas" class="section">
             <div class="container">
-                <div class="section-header">
-                    <h2>Gas Stations & Current Prices</h2>
-                    <button id="refresh-gas-prices" aria-label="Refresh gas prices">
-                        <i class="fas fa-sync-alt"></i>
-                        Refresh Prices
-                    </button>
+                <h2><i class="fas fa-gas-pump"></i> Find Cheap Gas in Elkin NC</h2>
+                <p class="section-subtitle">Save money on every fill-up with real-time gas price comparisons</p>
+                
+                <div class="gas-finder">
+                    <div class="gas-card">
+                        <div class="gas-card-icon">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <h3>Way.com Gas Prices</h3>
+                        <p>Find the lowest gas prices in Elkin, NC with real-time updates</p>
+                        <a href="https://www.way.com/gas/prices/north-carolina/elkin" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Find Gas Prices
+                        </a>
+                    </div>
+                    
+                    <div class="gas-card">
+                        <div class="gas-card-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Waze</h3>
+                        <p>Get real-time gas prices along your route with crowd-sourced updates</p>
+                        <a href="https://www.waze.com" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-map-marked-alt"></i>
+                            Open Waze
+                        </a>
+                    </div>
+                    
+                    <div class="gas-card">
+                        <div class="gas-card-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <h3>Google Maps</h3>
+                        <p>Compare nearby gas station prices and find the best deals</p>
+                        <a href="https://www.google.com/maps/search/gas+station+near+me" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Search Stations
+                        </a>
+                    </div>
+                    
+                    <div class="gas-card">
+                        <div class="gas-card-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3>GasBuddy</h3>
+                        <p>Community-driven gas price tracking with rewards program</p>
+                        <a href="https://www.gasbuddy.com/gasprices/north-carolina/elkin" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-chart-line"></i>
+                            Check Prices
+                        </a>
+                    </div>
+                    
+                    <div class="gas-card">
+                        <div class="gas-card-icon">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <h3>GetUpside</h3>
+                        <p>Earn cash back on gas purchases at participating stations</p>
+                        <a href="https://getupside.com" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-coins"></i>
+                            Get Cash Back
+                        </a>
+                    </div>
+                    
+                    <div class="gas-card">
+                        <div class="gas-card-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>AAA Gas Prices</h3>
+                        <p>Track regional gas price trends and forecasts</p>
+                        <a href="https://gasprices.aaa.com" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-info-circle"></i>
+                            View Trends
+                        </a>
+                    </div>
                 </div>
-                <p class="update-time">Last updated: <span id="gas-update-time">Loading...</span></p>
-                <div class="gas-stations">
-                    <div class="gas-station">
-                        <div class="station-info">
-                            <h3>Shell + Circle K</h3>
-                            <p>985 Johnson Ridge Rd</p>
-                            <p>Fuel Rewards • 24/7</p>
+                
+                <div class="gas-tips">
+                    <h3><i class="fas fa-lightbulb"></i> Gas Saving Tips</h3>
+                    <div class="tips-grid">
+                        <div class="gas-tip">
+                            <i class="fas fa-clock"></i>
+                            <h4>Best Times to Fill Up</h4>
+                            <p>Monday mornings and late evenings typically have lower prices</p>
                         </div>
-                        <div class="price-info">
-                            <span class="price" id="price-shell">$--.-</span>
-                            <small>/gal</small>
+                        <div class="gas-tip">
+                            <i class="fas fa-route"></i>
+                            <h4>Plan Your Route</h4>
+                            <p>Combine errands to reduce total miles driven and save fuel</p>
                         </div>
-                    </div>
-
-                    <div class="gas-station">
-                        <div class="station-info">
-                            <h3>Speedway</h3>
-                            <p>626 CC Camp Rd</p>
-                            <p>Speedy Rewards • 24/7</p>
+                        <div class="gas-tip">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h4>Drive Efficiently</h4>
+                            <p>Maintain steady speeds and avoid rapid acceleration to improve MPG</p>
                         </div>
-                        <div class="price-info">
-                            <span class="price" id="price-speedway">$--.-</span>
-                            <small>/gal</small>
+                        <div class="gas-tip">
+                            <i class="fas fa-credit-card"></i>
+                            <h4>Use Rewards Cards</h4>
+                            <p>Many stations offer loyalty programs with per-gallon discounts</p>
                         </div>
-                    </div>
-
-                    <div class="gas-station">
-                        <div class="station-info">
-                            <h3>Murphy Express</h3>
-                            <p>491 CC Camp Rd</p>
-                            <p>Murphy Drive Rewards • 6AM-11PM</p>
-                        </div>
-                        <div class="price-info">
-                            <span class="price" id="price-murphy">$--.-</span>
-                            <small>/gal</small>
-                        </div>
-                    </div>
-
-                    <div class="gas-station">
-                        <div class="station-info">
-                            <h3>Sheetz</h3>
-                            <p>401 CC Camp Rd</p>
-                            <p>MySheetz • 24/7</p>
-                        </div>
-                        <div class="price-info">
-                            <span class="price" id="price-sheetz">$--.-</span>
-                            <small>/gal</small>
-                        </div>
-                    </div>
-
-                    <div class="gas-station">
-                        <div class="station-info">
-                            <h3>CITGO</h3>
-                            <p>798 NC Highway 268 W</p>
-                            <p>Club CITGO • 6AM-10PM</p>
-                        </div>
-                        <div class="price-info">
-                            <span class="price" id="price-citgo">$--.-</span>
-                            <small>/gal</small>
-                        </div>
-                    </div>
-                </div>
-                <div id="gas-attribution">
-                    <small>Price data sourced from GetUpside • Last verified: August 1, 2025</small>
-                </div>
-                <div class="gas-apps">
-                    <h3>Recommended Gas Apps</h3>
-                    <div class="app-links">
-                        <a href="https://gasbuddy.com" target="_blank" class="btn btn-outline">GasBuddy</a>
-                        <a href="https://getupside.com" target="_blank" class="btn btn-outline">GetUpside</a>
                     </div>
                 </div>
             </div>
@@ -579,6 +756,196 @@
                             <span id="countdown-trail">Loading...</span>
                         </div>
                         <p>First weekend in June<br>4-day festival with outdoor exhibitors</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="savings-calculator" class="section">
+            <div class="container">
+                <h2><i class="fas fa-calculator"></i> Savings Calculator</h2>
+                <p class="section-subtitle">See how much you can save with smart shopping in Elkin, NC</p>
+                
+                <div class="calculator-tabs">
+                    <button class="tab-button active" onclick="showCalculator('gas', this)">
+                        <i class="fas fa-gas-pump"></i> Gas Savings
+                    </button>
+                    <button class="tab-button" onclick="showCalculator('grocery', this)">
+                        <i class="fas fa-shopping-cart"></i> Grocery Savings
+                    </button>
+                    <button class="tab-button" onclick="showCalculator('dining', this)">
+                        <i class="fas fa-utensils"></i> Dining Savings
+                    </button>
+                </div>
+
+                <!-- Gas Savings Calculator -->
+                <div id="gas-calculator" class="calculator-panel active">
+                    <div class="calculator-content">
+                        <div class="input-section">
+                            <h3>Gas Savings Calculator</h3>
+                            <p>Compare savings by choosing the cheapest gas station in Elkin</p>
+                            
+                            <div class="input-grid">
+                                <div class="input-group">
+                                    <label for="miles-per-week">Miles driven per week</label>
+                                    <input type="number" id="miles-per-week" value="150" min="0" max="1000" oninput="calculateGasSavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="mpg">Your car's MPG</label>
+                                    <input type="number" id="mpg" value="25" min="5" max="50" oninput="calculateGasSavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="expensive-price">Expensive station price ($/gal)</label>
+                                    <input type="number" id="expensive-price" value="2.79" min="2" max="5" step="0.01" oninput="calculateGasSavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="cheap-price">Cheapest station price ($/gal)</label>
+                                    <input type="number" id="cheap-price" value="2.67" min="2" max="5" step="0.01" oninput="calculateGasSavings()">
+                                </div>
+                            </div>
+                            
+                            <button onclick="calculateGasSavings()" class="btn btn-primary calculate-btn">
+                                <i class="fas fa-calculator"></i> Calculate Savings
+                            </button>
+                        </div>
+
+                        <div class="results-section" id="gas-results">
+                            <h4>Your Potential Gas Savings</h4>
+                            <div class="savings-breakdown">
+                                <div class="savings-item">
+                                    <span class="period">Weekly</span>
+                                    <span class="amount" id="weekly-gas-savings">$0.00</span>
+                                </div>
+                                <div class="savings-item">
+                                    <span class="period">Monthly</span>
+                                    <span class="amount" id="monthly-gas-savings">$0.00</span>
+                                </div>
+                                <div class="savings-item highlight">
+                                    <span class="period">Annual</span>
+                                    <span class="amount" id="annual-gas-savings">$0.00</span>
+                                </div>
+                            </div>
+                            <div class="savings-insight">
+                                <p id="gas-insight">Enter your driving habits to see potential savings!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grocery Savings Calculator -->
+                <div id="grocery-calculator" class="calculator-panel">
+                    <div class="calculator-content">
+                        <div class="input-section">
+                            <h3>Grocery Savings Calculator</h3>
+                            <p>See how much you save by shopping sales and using coupons</p>
+                            
+                            <div class="input-grid">
+                                <div class="input-group">
+                                    <label for="weekly-grocery-budget">Weekly grocery budget ($)</label>
+                                    <input type="number" id="weekly-grocery-budget" value="120" min="0" max="500" oninput="calculateGrocerySavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="sale-percentage">% of items bought on sale</label>
+                                    <input type="number" id="sale-percentage" value="30" min="0" max="100" oninput="calculateGrocerySavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="average-discount">Average discount on sale items (%)</label>
+                                    <input type="number" id="average-discount" value="25" min="0" max="75" oninput="calculateGrocerySavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="coupon-savings">Weekly coupon savings ($)</label>
+                                    <input type="number" id="coupon-savings" value="8" min="0" max="50" oninput="calculateGrocerySavings()">
+                                </div>
+                            </div>
+                            
+                            <button onclick="calculateGrocerySavings()" class="btn btn-primary calculate-btn">
+                                <i class="fas fa-calculator"></i> Calculate Savings
+                            </button>
+                        </div>
+
+                        <div class="results-section" id="grocery-results">
+                            <h4>Your Potential Grocery Savings</h4>
+                            <div class="savings-breakdown">
+                                <div class="savings-item">
+                                    <span class="period">Weekly</span>
+                                    <span class="amount" id="weekly-grocery-savings">$0.00</span>
+                                </div>
+                                <div class="savings-item">
+                                    <span class="period">Monthly</span>
+                                    <span class="amount" id="monthly-grocery-savings">$0.00</span>
+                                </div>
+                                <div class="savings-item highlight">
+                                    <span class="period">Annual</span>
+                                    <span class="amount" id="annual-grocery-savings">$0.00</span>
+                                </div>
+                            </div>
+                            <div class="savings-insight">
+                                <p id="grocery-insight">Adjust your shopping habits to see potential savings!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dining Savings Calculator -->
+                <div id="dining-calculator" class="calculator-panel">
+                    <div class="calculator-content">
+                        <div class="input-section">
+                            <h3>Dining Out Savings Calculator</h3>
+                            <p>Calculate savings from cooking at home vs. dining out</p>
+                            
+                            <div class="input-grid">
+                                <div class="input-group">
+                                    <label for="meals-out-per-week">Meals out per week</label>
+                                    <input type="number" id="meals-out-per-week" value="4" min="0" max="21" oninput="calculateDiningSavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="average-meal-cost">Average cost per meal out ($)</label>
+                                    <input type="number" id="average-meal-cost" value="15" min="5" max="50" oninput="calculateDiningSavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="home-meal-cost">Average cost to cook at home ($)</label>
+                                    <input type="number" id="home-meal-cost" value="6" min="2" max="20" oninput="calculateDiningSavings()">
+                                </div>
+                                <div class="input-group">
+                                    <label for="meals-to-reduce">Meals to cook at home instead</label>
+                                    <input type="number" id="meals-to-reduce" value="2" min="0" max="21" oninput="calculateDiningSavings()">
+                                </div>
+                            </div>
+                            
+                            <button onclick="calculateDiningSavings()" class="btn btn-primary calculate-btn">
+                                <i class="fas fa-calculator"></i> Calculate Savings
+                            </button>
+                        </div>
+
+                        <div class="results-section" id="dining-results">
+                            <h4>Your Potential Dining Savings</h4>
+                            <div class="savings-breakdown">
+                                <div class="savings-item">
+                                    <span class="period">Weekly</span>
+                                    <span class="amount" id="weekly-dining-savings">$0.00</span>
+                                </div>
+                                <div class="savings-item">
+                                    <span class="period">Monthly</span>
+                                    <span class="amount" id="monthly-dining-savings">$0.00</span>
+                                </div>
+                                <div class="savings-item highlight">
+                                    <span class="period">Annual</span>
+                                    <span class="amount" id="annual-dining-savings">$0.00</span>
+                                </div>
+                            </div>
+                            <div class="savings-insight">
+                                <p id="dining-insight">Adjust your dining habits to see potential savings!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-footer">
+                    <div class="total-savings" id="total-savings-display" style="display: none;">
+                        <h3>Combined Annual Savings Potential</h3>
+                        <div class="total-amount" id="total-annual-savings">$0</div>
+                        <p>That's like getting <span id="insurance-comparison"></span> months of car insurance FREE!*</p>
+                        <small>*Based on average NC car insurance cost of $95/month</small>
                     </div>
                 </div>
             </div>
