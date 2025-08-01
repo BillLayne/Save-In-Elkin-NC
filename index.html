@@ -2589,7 +2589,226 @@
 
     <!-- JavaScript (same as before but with accessibility improvements) -->
     <script>
-        // Enhanced mobile navigation with ARIA
+        
+        // Savings Calculator Functions
+        let gasSavingsAnnual = 0;
+        let grocerySavingsAnnual = 0;
+        let diningSavingsAnnual = 0;
+
+        // Show Calculator Function
+        function showCalculator(type, buttonElement) {
+            console.log('showCalculator called with type:', type);
+            
+            // Hide all panels
+            document.querySelectorAll('.calculator-panel').forEach(panel => {
+                panel.style.display = 'none';
+                panel.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-button').forEach(tab => {
+                tab.classList.remove('active');
+                tab.style.background = 'white';
+                tab.style.color = '#374151';
+                tab.style.borderColor = '#E5E7EB';
+            });
+            
+            // Show selected panel
+            const panel = document.getElementById(type + '-calculator');
+            if (panel) {
+                panel.style.display = 'block';
+                panel.classList.add('active');
+                console.log('Panel shown:', type + '-calculator');
+            } else {
+                console.error('Panel not found:', type + '-calculator');
+            }
+            
+            // Add active class to clicked tab
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+                buttonElement.style.background = '#2563EB';
+                buttonElement.style.color = 'white';
+                buttonElement.style.borderColor = '#2563EB';
+            }
+            
+            // Auto-calculate for the active calculator
+            setTimeout(() => {
+                try {
+                    if (type === 'gas') calculateGasSavings();
+                    if (type === 'grocery') calculateGrocerySavings();
+                    if (type === 'dining') calculateDiningSavings();
+                } catch (error) {
+                    console.error('Error in calculation:', error);
+                }
+            }, 100);
+        }
+
+        // Gas Savings Calculator
+        function calculateGasSavings() {
+            console.log('calculateGasSavings called');
+            
+            const milesPerWeek = parseFloat(document.getElementById('miles-per-week')?.value) || 0;
+            const mpg = parseFloat(document.getElementById('mpg')?.value) || 0;
+            const expensivePrice = parseFloat(document.getElementById('expensive-price')?.value) || 0;
+            const cheapPrice = parseFloat(document.getElementById('cheap-price')?.value) || 0;
+            
+            if (mpg > 0 && expensivePrice > 0 && cheapPrice > 0) {
+                const gallonsPerWeek = milesPerWeek / mpg;
+                const weeklyExpensiveCost = gallonsPerWeek * expensivePrice;
+                const weeklyCheapCost = gallonsPerWeek * cheapPrice;
+                const weeklySavings = weeklyExpensiveCost - weeklyCheapCost;
+                const monthlySavings = weeklySavings * 4.33;
+                const annualSavings = weeklySavings * 52;
+                
+                gasSavingsAnnual = annualSavings;
+                
+                document.getElementById('weekly-gas-savings').textContent = '$' + weeklySavings.toFixed(2);
+                document.getElementById('monthly-gas-savings').textContent = '$' + monthlySavings.toFixed(2);
+                document.getElementById('annual-gas-savings').textContent = '$' + annualSavings.toFixed(2);
+                
+                const savingsPercentage = ((expensivePrice - cheapPrice) / expensivePrice * 100).toFixed(1);
+                document.getElementById('gas-insight').textContent = `You're saving ${savingsPercentage}% per gallon by finding cheaper gas. Over a year, that's ${(gallonsPerWeek * 52).toFixed(0)} gallons saved!`;
+                
+                updateTotalSavings();
+            }
+        }
+
+        // Grocery Savings Calculator
+        function calculateGrocerySavings() {
+            console.log('calculateGrocerySavings called');
+            
+            try {
+                const weeklyBudget = parseFloat(document.getElementById('weekly-grocery-budget')?.value) || 0;
+                const salePercentage = parseFloat(document.getElementById('sale-percentage')?.value) / 100 || 0;
+                const averageDiscount = parseFloat(document.getElementById('average-discount')?.value) / 100 || 0;
+                const couponSavings = parseFloat(document.getElementById('coupon-savings')?.value) || 0;
+                
+                console.log('Grocery inputs:', {weeklyBudget, salePercentage, averageDiscount, couponSavings});
+                
+                const saleSavings = weeklyBudget * salePercentage * averageDiscount;
+                const totalWeeklySavings = saleSavings + couponSavings;
+                const monthlySavings = totalWeeklySavings * 4.33;
+                const annualSavings = totalWeeklySavings * 52;
+                
+                grocerySavingsAnnual = annualSavings;
+                
+                // Update display elements
+                const weeklyEl = document.getElementById('weekly-grocery-savings');
+                const monthlyEl = document.getElementById('monthly-grocery-savings');
+                const annualEl = document.getElementById('annual-grocery-savings');
+                const insightEl = document.getElementById('grocery-insight');
+                
+                if (weeklyEl) weeklyEl.textContent = '$' + totalWeeklySavings.toFixed(2);
+                if (monthlyEl) monthlyEl.textContent = '$' + monthlySavings.toFixed(2);
+                if (annualEl) annualEl.textContent = '$' + annualSavings.toFixed(2);
+                
+                const savingsPercentage = weeklyBudget > 0 ? (totalWeeklySavings / weeklyBudget * 100).toFixed(1) : 0;
+                let insight = `You're saving ${savingsPercentage}% on your grocery budget through sales and coupons.`;
+                
+                if (annualSavings > 500) {
+                    insight += ` That's like getting a month of groceries free every year!`;
+                } else if (annualSavings > 200) {
+                    insight += ` That adds up to significant savings over time!`;
+                }
+                
+                if (insightEl) insightEl.textContent = insight;
+                
+                updateTotalSavings();
+                console.log('Grocery calculation completed successfully');
+                
+            } catch (error) {
+                console.error('Error in calculateGrocerySavings:', error);
+            }
+        }
+
+        // Dining Savings Calculator
+        function calculateDiningSavings() {
+            console.log('calculateDiningSavings called');
+            
+            try {
+                const mealsOut = parseFloat(document.getElementById('meals-out-per-week')?.value) || 0;
+                const mealCost = parseFloat(document.getElementById('average-meal-cost')?.value) || 0;
+                const homeCost = parseFloat(document.getElementById('home-meal-cost')?.value) || 0;
+                const mealsToReduce = parseFloat(document.getElementById('meals-to-reduce')?.value) || 0;
+                
+                console.log('Dining inputs:', {mealsOut, mealCost, homeCost, mealsToReduce});
+                
+                if (mealCost <= homeCost) {
+                    const insightEl = document.getElementById('dining-insight');
+                    if (insightEl) {
+                        insightEl.textContent = 'Home cooking cost should be less than dining out cost for savings.';
+                    }
+                    return;
+                }
+                
+                const savingsPerMeal = mealCost - homeCost;
+                const weeklySavings = mealsToReduce * savingsPerMeal;
+                const monthlySavings = weeklySavings * 4.33;
+                const annualSavings = weeklySavings * 52;
+                
+                diningSavingsAnnual = annualSavings;
+                
+                // Update display elements
+                const weeklyEl = document.getElementById('weekly-dining-savings');
+                const monthlyEl = document.getElementById('monthly-dining-savings');
+                const annualEl = document.getElementById('annual-dining-savings');
+                const insightEl = document.getElementById('dining-insight');
+                
+                if (weeklyEl) weeklyEl.textContent = '$' + weeklySavings.toFixed(2);
+                if (monthlyEl) monthlyEl.textContent = '$' + monthlySavings.toFixed(2);
+                if (annualEl) annualEl.textContent = '$' + annualSavings.toFixed(2);
+                
+                let insight = `By cooking ${mealsToReduce} more meals at home each week, you save $${savingsPerMeal.toFixed(2)} per meal.`;
+                
+                if (annualSavings > 1000) {
+                    insight += ` That's enough for a nice vacation!`;
+                } else if (annualSavings > 500) {
+                    insight += ` That could cover several months of utilities!`;
+                }
+                
+                if (insightEl) insightEl.textContent = insight;
+                
+                updateTotalSavings();
+                console.log('Dining calculation completed successfully');
+                
+            } catch (error) {
+                console.error('Error in calculateDiningSavings:', error);
+            }
+        }
+
+        // Update Total Savings Display
+        function updateTotalSavings() {
+            const totalAnnual = gasSavingsAnnual + grocerySavingsAnnual + diningSavingsAnnual;
+            
+            console.log('Total savings update:', {gasSavingsAnnual, grocerySavingsAnnual, diningSavingsAnnual, totalAnnual});
+            
+            if (totalAnnual > 0) {
+                const displayElement = document.getElementById('total-savings-display');
+                if (displayElement) {
+                    displayElement.style.display = 'block';
+                }
+                
+                const totalElement = document.getElementById('total-annual-savings');
+                if (totalElement) {
+                    totalElement.textContent = '$' + totalAnnual.toFixed(0);
+                }
+                
+                const months = Math.round(totalAnnual / 95);
+                const comparisonElement = document.getElementById('insurance-comparison');
+                if (comparisonElement) {
+                    comparisonElement.textContent = months;
+                }
+            }
+        }
+
+        // Make functions globally available
+        window.showCalculator = showCalculator;
+        window.calculateGasSavings = calculateGasSavings;
+        window.calculateGrocerySavings = calculateGrocerySavings;
+        window.calculateDiningSavings = calculateDiningSavings;
+        window.updateTotalSavings = updateTotalSavings;
+
+         with ARIA
         function initMobileNavigation() {
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -2617,6 +2836,41 @@
         document.addEventListener('DOMContentLoaded', function() {
             initMobileNavigation();
             // ... other initialization functions
+        
+            
+            // Initialize calculators
+            console.log('Initializing calculators...');
+            
+            // Set up event listeners for calculator inputs
+            const calculatorInputs = [
+                'miles-per-week', 'mpg', 'expensive-price', 'cheap-price',
+                'weekly-grocery-budget', 'sale-percentage', 'average-discount', 'coupon-savings',
+                'meals-out-per-week', 'average-meal-cost', 'home-meal-cost', 'meals-to-reduce'
+            ];
+            
+            calculatorInputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', function() {
+                        if (['miles-per-week', 'mpg', 'expensive-price', 'cheap-price'].includes(id)) {
+                            calculateGasSavings();
+                        } else if (['weekly-grocery-budget', 'sale-percentage', 'average-discount', 'coupon-savings'].includes(id)) {
+                            calculateGrocerySavings();
+                        } else if (['meals-out-per-week', 'average-meal-cost', 'home-meal-cost', 'meals-to-reduce'].includes(id)) {
+                            calculateDiningSavings();
+                        }
+                    });
+                }
+            });
+            
+            // Initialize gas calculator by default
+            setTimeout(() => {
+                const gasPanel = document.getElementById('gas-calculator');
+                if (gasPanel) {
+                    gasPanel.style.display = 'block';
+                    calculateGasSavings();
+                }
+            }, 100);
         });
     </script>
 </body>
