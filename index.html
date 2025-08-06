@@ -257,6 +257,19 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .deal-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
         /* Mobile menu styles */
         .mobile-menu-overlay {
             position: fixed;
@@ -756,7 +769,7 @@
                             <i class="fas fa-star text-amber-500 mr-3" aria-hidden="true"></i>This Week's Best Grocery Deals in Elkin NC
                         </h3>
                         <p class="text-gray-600" itemprop="description">Updated every Sunday with fresh weekly specials from Food Lion, Ingles Markets, and Walmart in Elkin, North Carolina. Save money on groceries with these verified deals.</p>
-                        <p class="text-sm text-gray-500 mt-2">Valid August 1-7, 2025 | Last updated: <time datetime="2025-08-01">August 1, 2025</time></p>
+                        <p class="text-sm text-gray-500 mt-2">Valid August 6-12, 2025 | Last updated: <time datetime="2025-08-06">August 6, 2025</time></p>
                     </header>
                     
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
@@ -765,29 +778,41 @@
                                  itemscope itemtype="https://schema.org/ListItem">
                             <header class="flex justify-between items-center mb-4">
                                 <h4 class="font-bold text-gray-900" itemprop="name">Food Lion Elkin NC Weekly Deals</h4>
-                                <span class="text-sm text-gray-600">Valid Aug 1-7</span>
+                                <span class="text-sm text-gray-600">Valid Aug 6-12</span>
                             </header>
                             <div class="space-y-3" role="list">
                                 <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
                                     <div class="flex items-center">
-                                        <i class="fas fa-apple-alt text-red-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Gala Apples</span>
+                                        <i class="fas fa-cookie text-red-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Nabisco BelVita Breakfast Biscuits</span>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">$0.99/lb</span>
-                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Save $1.00</span>
+                                        <span class="font-bold text-green-600" itemprop="price">MVP 2/$6</span>
+                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Special Deal</span>
                                         <meta itemprop="priceCurrency" content="USD">
                                         <meta itemprop="availability" content="https://schema.org/InStock">
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
                                     <div class="flex items-center">
-                                        <i class="fas fa-drumstick-bite text-red-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Boneless Chicken Breast</span>
+                                        <i class="fas fa-utensils text-red-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Post Pebbles/Honey Bunches</span>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">$1.99/lb</span>
-                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Save $2.00</span>
+                                        <span class="font-bold text-green-600" itemprop="price">MVP 2/$4</span>
+                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Hot Deal</span>
+                                        <meta itemprop="priceCurrency" content="USD">
+                                        <meta itemprop="availability" content="https://schema.org/InStock">
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-hamburger text-red-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Ball Park Pork & Beef Patties</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="font-bold text-green-600" itemprop="price">$6.99 EA</span>
+                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Fresh Deal</span>
                                         <meta itemprop="priceCurrency" content="USD">
                                         <meta itemprop="availability" content="https://schema.org/InStock">
                                     </div>
@@ -805,53 +830,41 @@
                                  itemscope itemtype="https://schema.org/ListItem">
                             <header class="flex justify-between items-center mb-4">
                                 <h4 class="font-bold text-gray-900" itemprop="name">Ingles Markets Elkin NC Weekly Deals</h4>
-                                <span class="text-sm text-gray-600">Valid Aug 1-7</span>
+                                <span class="text-sm text-gray-600">Valid Aug 6-12</span>
                             </header>
                             <div class="space-y-3" role="list">
                                 <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
                                     <div class="flex items-center">
-                                        <i class="fas fa-fish text-blue-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Atlantic Salmon</span>
+                                        <i class="fas fa-tag text-blue-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Laura Lynn Brand Products</span>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">$6.99/lb</span>
-                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Save $3.00</span>
+                                        <span class="font-bold text-green-600" itemprop="price">Save 20%</span>
+                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Store Brand</span>
                                         <meta itemprop="priceCurrency" content="USD">
                                         <meta itemprop="availability" content="https://schema.org/InStock">
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
                                     <div class="flex items-center">
-                                        <i class="fas fa-ice-cream text-blue-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Blue Bell Ice Cream</span>
+                                        <i class="fas fa-credit-card text-blue-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Advantage Card Deals</span>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">$3.99</span>
-                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Save $1.50</span>
+                                        <span class="font-bold text-green-600" itemprop="price">Extra Savings</span>
+                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Members Only</span>
                                         <meta itemprop="priceCurrency" content="USD">
                                         <meta itemprop="availability" content="https://schema.org/InStock">
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
                                     <div class="flex items-center">
-                                        <i class="fas fa-soap text-blue-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Tide Detergent</span>
+                                        <i class="fas fa-gas-pump text-blue-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Fuel Points Program</span>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">$8.99</span>
-                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Save $3.00</span>
-                                        <meta itemprop="priceCurrency" content="USD">
-                                        <meta itemprop="availability" content="https://schema.org/InStock">
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-cookie-bite text-blue-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Oreo Cookies</span>
-                                    </div>
-                                    <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">2 for $5</span>
-                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Save $2.00</span>
+                                        <span class="font-bold text-green-600" itemprop="price">3¢ off/gal</span>
+                                        <span class="block text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded">Per $50</span>
                                         <meta itemprop="priceCurrency" content="USD">
                                         <meta itemprop="availability" content="https://schema.org/InStock">
                                     </div>
@@ -874,11 +887,23 @@
                             <div class="space-y-3" role="list">
                                 <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
                                     <div class="flex items-center">
-                                        <i class="fas fa-hamburger text-yellow-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Ground Beef 80/20</span>
+                                        <i class="fas fa-tag text-yellow-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Great Value Products</span>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">$3.98/lb</span>
+                                        <span class="font-bold text-green-600" itemprop="price">Up to 25% off</span>
+                                        <span class="block text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">Store Brand</span>
+                                        <meta itemprop="priceCurrency" content="USD">
+                                        <meta itemprop="availability" content="https://schema.org/InStock">
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-apple-alt text-yellow-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Fresh Produce Rollbacks</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="font-bold text-green-600" itemprop="price">Daily Deals</span>
                                         <span class="block text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">Rollback</span>
                                         <meta itemprop="priceCurrency" content="USD">
                                         <meta itemprop="availability" content="https://schema.org/InStock">
@@ -886,12 +911,12 @@
                                 </div>
                                 <div class="flex justify-between items-center" itemscope itemtype="https://schema.org/Offer">
                                     <div class="flex items-center">
-                                        <i class="fas fa-carrot text-yellow-500 mr-2" aria-hidden="true"></i>
-                                        <span class="text-sm" itemprop="name">Baby Carrots 2lb Bag</span>
+                                        <i class="fas fa-truck text-yellow-500 mr-2" aria-hidden="true"></i>
+                                        <span class="text-sm" itemprop="name">Grocery Pickup</span>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-bold text-green-600" itemprop="price">$1.98</span>
-                                        <span class="block text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">Everyday Low</span>
+                                        <span class="font-bold text-green-600" itemprop="price">Free on $35+</span>
+                                        <span class="block text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">Service</span>
                                         <meta itemprop="priceCurrency" content="USD">
                                         <meta itemprop="availability" content="https://schema.org/InStock">
                                     </div>
@@ -929,6 +954,74 @@
                         </article>
                     </div>
 
+                    <!-- Additional Stores Section -->
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                            <i class="fas fa-store text-blue-600 mr-3" aria-hidden="true"></i>Additional Stores in Elkin NC
+                        </h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- Dollar General -->
+                            <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-dollar-sign text-yellow-600 text-xl" aria-hidden="true"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900">Dollar General</h4>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">$5 off $25 Saturdays</p>
+                                <div class="space-y-2 text-xs text-gray-500">
+                                    <p><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Multiple Elkin locations</p>
+                                    <p><i class="fas fa-tag mr-2 text-blue-600"></i>Digital coupons available</p>
+                                </div>
+                            </article>
+
+                            <!-- Sheetz -->
+                            <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-gas-pump text-red-600 text-xl" aria-hidden="true"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900">Sheetz</h4>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">MTO Deals & Gas Rewards</p>
+                                <div class="space-y-2 text-xs text-gray-500">
+                                    <p><i class="fas fa-clock mr-2 text-blue-600"></i>24/7 Open</p>
+                                    <p><i class="fas fa-coffee mr-2 text-blue-600"></i>Free coffee Tuesdays</p>
+                                </div>
+                            </article>
+
+                            <!-- Farmers Market -->
+                            <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-seedling text-green-600 text-xl" aria-hidden="true"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900">Farmers Market</h4>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Saturdays 9 AM - Noon</p>
+                                <div class="space-y-2 text-xs text-gray-500">
+                                    <p><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>101 W Market St</p>
+                                    <p><i class="fas fa-leaf mr-2 text-blue-600"></i>Fresh local produce</p>
+                                </div>
+                            </article>
+
+                            <!-- Ollie's Bargain Outlet -->
+                            <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-percentage text-purple-600 text-xl" aria-hidden="true"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900">Ollie's Bargain Outlet</h4>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Up to 70% off retail</p>
+                                <div class="space-y-2 text-xs text-gray-500">
+                                    <p><i class="fas fa-box mr-2 text-blue-600"></i>Closeout merchandise</p>
+                                    <p><i class="fas fa-truck mr-2 text-blue-600"></i>New shipments weekly</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
                     <!-- Local Shopping Tips with Schema -->
                     <section class="mt-8 bg-gray-50 rounded-xl p-6" itemscope itemtype="https://schema.org/HowTo">
                         <h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center" itemprop="name">
@@ -959,6 +1052,117 @@
                         </div>
                     </section>
                 </section>
+            </div>
+        </section>
+
+        <!-- Restaurant Deals Section -->
+        <section id="restaurant-deals" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <header class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-utensils text-blue-600 mr-3" aria-hidden="true"></i>
+                        Restaurant Deals in Elkin NC
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Save money dining out with these local restaurant specials and deals</p>
+                </header>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Tuesday Kids Eat Free -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-child text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Tuesday Kids Eat Free</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Multiple Elkin restaurants offer free kids meals with adult entrée purchase</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Southern on Main</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Harry's Place</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Local family restaurants</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Daily Lunch Specials -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-clock text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Daily Lunch Specials</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">11 AM - 2 PM weekday lunch deals</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-dollar-sign text-green-500 mr-2"></i>$6-8 lunch combos</li>
+                            <li><i class="fas fa-dollar-sign text-green-500 mr-2"></i>Soup & sandwich specials</li>
+                            <li><i class="fas fa-dollar-sign text-green-500 mr-2"></i>Quick service guaranteed</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Senior Discounts -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-percentage text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Senior Discounts (55+)</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">10-15% off at participating restaurants</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Daily senior specials</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Early bird dinners 4-6 PM</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>AARP member benefits</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Happy Hour Specials -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-glass-cheers text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Happy Hour Specials</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">3-6 PM appetizer and drink specials</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Half-price appetizers</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>$2 off select beverages</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Local brewery specials</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Pizza Deals -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-pizza-slice text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Pizza Night Deals</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Weekly pizza specials and family deals</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Monday-Thursday specials</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Family meal deals</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Carryout discounts</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Local Coupons -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-ticket-alt text-indigo-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Local Restaurant Coupons</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Find coupons in local publications</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Elkin Tribune coupons</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Direct mail offers</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Mobile app deals</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -1102,6 +1306,117 @@
                         </div>
                     </div>
                 </section>
+            </div>
+        </section>
+
+        <!-- Pharmacy Discounts Section -->
+        <section id="pharmacy" class="section-padding bg-gray-50">
+            <div class="container mx-auto px-4">
+                <header class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-prescription-bottle text-blue-600 mr-3" aria-hidden="true"></i>
+                        Pharmacy Discounts in Elkin NC
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Save on prescription medications with these local pharmacy programs and discount options</p>
+                </header>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Walmart $4 Generics -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-blue-600 font-bold text-xl">$4</span>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Walmart $4 Generic List</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">30-day supply of select generic medications</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>300+ medications covered</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>$10 for 90-day supply</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>No insurance required</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Food Lion Pharmacy -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-pills text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Food Lion Pharmacy Rewards</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">MVP rewards on prescriptions</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Free antibiotics program</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Fuel points on prescriptions</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Automatic refill reminders</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- GoodRx Discounts -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-percentage text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">GoodRx Discount Cards</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Save up to 80% on prescriptions</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Free to use</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Accepted at all Elkin pharmacies</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Price comparison tool</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- 90-Day Supplies -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-calendar-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">90-Day Supply Savings</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Save with extended supply options</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Lower cost per dose</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Fewer pharmacy trips</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Mail order available</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Medicare Part D -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-id-card text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Medicare Part D Assistance</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Help navigating coverage options</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Plan comparison assistance</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Extra Help program info</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Local counseling available</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Patient Assistance -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-hands-helping text-indigo-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Patient Assistance Programs</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Manufacturer discount programs</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Income-based assistance</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Brand name drug discounts</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Application help available</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -2514,6 +2829,117 @@
                         </div>
                     </div>
                 </section>
+            </div>
+        </section>
+
+        <!-- Entertainment Section -->
+        <section id="entertainment" class="section-padding bg-gray-50">
+            <div class="container mx-auto px-4">
+                <header class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-theater-masks text-blue-600 mr-3" aria-hidden="true"></i>
+                        Entertainment in Elkin NC
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Free and low-cost entertainment options for the whole family</p>
+                </header>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Tuesday Movie Discounts -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-film text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Tuesday Movie Discounts</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Discounted movie tickets every Tuesday</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>All day discounted pricing</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Matinee prices all day</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Special senior pricing</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Library Programs -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-book text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Library Programs</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Free programs at Northwestern Regional Library</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Story time for kids</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Book clubs</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Computer classes</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Parks and Trails -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-tree text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Parks and Trails</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Free outdoor recreation areas</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Elkin Municipal Park</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Overmountain Victory Trail</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Big Elkin Creek Greenway</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Youth Sports -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-basketball-ball text-orange-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Youth Sports Leagues</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Affordable youth sports programs</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Recreation department leagues</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Seasonal sports</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Scholarships available</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Wine Tours -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-wine-glass text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Wine Tours & Tastings</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Yadkin Valley wine country experiences</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Free tastings at select wineries</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Group tour discounts</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Special event pricing</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Community Events -->
+                    <article class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-calendar-alt text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-900">Free Community Events</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">Year-round free events</p>
+                        <ul class="space-y-2 text-xs text-gray-500">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Downtown concerts</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Festival activities</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Holiday celebrations</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
         </section>
 
